@@ -90,7 +90,7 @@
                                         </fieldset>
 					<fieldset>
                                                 <legend>Bavarian Hopping</legend>
-                                                <form name="bavarianHopping">
+                                                <form name="bavarianHop">
 							<input type="text" name="bavarianVolume" placeholder="Volume" size="3" value="50"/>L 
                                                         <input type="text" name="bavarianAlpha" placeholder="Alpha" size="3" value="3.5"/>%AA &rarr;
                                                         <input type="text" name="bavarianIBU" placeholder="IBU" size="3" value="28"/>IBU 
@@ -99,32 +99,34 @@
 						</form>
 						<table width="100%">
                                                         <tr>
-                                                                <td width="66%">First wort</td>
-                                                                <td id="bavarianFWH">-</td>
+                                                                <td width="50%">First wort</td>
+                                                                <td id="bavarianFWH" width="25%">-</td>
+								<td id="bavarianFWHIBU">-</td>
                                                         </tr>
                                                         <tr>
                                                                 <td>Ebullition</td>
                                                                 <td id="bavarianBoil">-</td>
+								<td id="bavarianBoilIBU">-</td>
                                                         </tr>
                                                 </table>
 				</td>
 				<td width=33%>
                                         <fieldset>
                                                 <legend>Premier palier</legend>
-						<form>
-							<input type="text" placeholder="Grain" size="4"/>kg 
-							<input type="text" placeholder="Ratio" size="3"/> &rarr;
-							<input type="text" placeholder="Temp" size="3"/>°C
-							<input type="button" value="&circlearrowleft;"/>
+						<form name="infusion">
+							<input type="text" name="maltInfu" placeholder="Grain" size="3"/>kg 
+							<input type="text" name="ratioInfu" placeholder="Ratio" size="3" value="3.0"/> &rarr;
+							<input type="text" name="targetInfu" placeholder="Temp" size="3"/>°C
+							<input type="button" value="&circlearrowleft;" onClick="firstInfusion()"/>
 						</form>
 						<table width="100%">
 							<tr>
-								<td>Volume eau</td>
-								<td>x.xL</td>
+								<td width="66%">Volume eau</td>
+								<td id="volumeInfu">-</td>
 							</tr>
 							<tr>
 								<td>Temp eau</td>
-								<td>x.x°C</td>
+								<td id="tempInfu">-</td>
 							</tr>
 						</table>
                                         </fieldset>
@@ -138,7 +140,7 @@
 						<table width="100%">
                                                         <tr>
                                                                 <td width="66%">Volume trempe</td>
-                                                                <td id="decoctionTrempe">-</td>
+                                                                <td id="decoctionTrempeVolume">-</td>
                                                         </tr>
                                                         <tr>
                                                                 <td>Ratio</td>

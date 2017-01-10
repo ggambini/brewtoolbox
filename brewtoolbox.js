@@ -144,23 +144,36 @@ function decoctionTrempe() {
                                 var decoctionRetour = '100.0'
 
                                 decoctionRatio = (decoctionCible - decoctionInitial) / (decoctionRetour - decoctionInitial);
-                                decoctionTrempe = decoctionVolume * decoctionRatio;
+                                decoctionTrempeVolume = decoctionVolume * decoctionRatio;
 
-                                document.getElementById('decoctionTrempe').innerHTML = decoctionTrempe.toFixed(1) + "L";
-                                document.getElementById('decoctionRatio').innerHTML = ((decoctionRatio* 100).toFixed(1)) + "%";
+                                document.getElementById('decoctionTrempeVolume').innerHTML = decoctionTrempeVolume.toFixed(1) + "L";
+                                document.getElementById('decoctionRatio').innerHTML = ((decoctionRatio * 100).toFixed(1)) + "%";
                         }
 
 function bavarianHopping() {
-                                var bavarianVolume = document.bavarianHopping.bavarianVolume.value;
-                                var bavarianAlpha = document.bavarianHopping.bavarianAlpha.value;
-                                var bavarianIBU = document.bavarianHopping.bavarianIBU.value;
-                                var bavarianRatio = document.bavarianHopping.bavarianRatio.value;
+                                var bavarianVolume = document.bavarianHop.bavarianVolume.value;
+                                var bavarianAlpha = document.bavarianHop.bavarianAlpha.value;
+                                var bavarianIBU = document.bavarianHop.bavarianIBU.value;
+                                var bavarianRatio = document.bavarianHop.bavarianRatio.value;
 
                                 var totalIBU = bavarianIBU * bavarianVolume;
                                 var totalHop = totalIBU / ((bavarianAlpha / 100) * bavarianRatio * 1000);
                                 var fwhHop = bavarianRatio * totalHop;
                                 var boilHop = (1 - bavarianRatio) * totalHop;
 
-                                document.getElementById('bavarianFWH').innerHTML = fwhHop;
-                                document.getElementById('bavarianBoil').innerHTML = boilHop;
+                                document.getElementById('bavarianFWH').innerHTML = fwhHop.toFixed(0) + "g";
+                                document.getElementById('bavarianBoil').innerHTML = boilHop.toFixed(0) + "g";
                         }
+
+	function firstInfusion() {
+		var maltInfu = document.infusion.maltInfu.value;
+		var ratioInfu = document.infusion.ratioInfu.value;
+		var targetInfu = document.infusion.targetInfu.value;
+
+		var volumeInfu = ratioInfu * maltInfu;
+		var initialInfu = (maltInfu * 1610 * (20 - targetInfu)) / (volumeInfu * 4185);
+		var tempInfu = targetInfu - initialInfu;
+
+		document.getElementById('volumeInfu').innerHTML = volumeInfu.toFixed(1) + "L";
+		document.getElementById('tempInfu').innerHTML = tempInfu.toFixed(1) + "°C";
+	}
