@@ -1,4 +1,4 @@
-function getSG(gravity,unit) {
+			function getSG(gravity,unit) {
                                 gravity = parseFloat(gravity);
                                 var result;
                                 if(unit == "sg") {
@@ -24,7 +24,7 @@ function getSG(gravity,unit) {
                                 return result;
                         }
 
-function getPlato(gravity,unit) {
+			function getPlato(gravity,unit) {
                                 gravity = parseFloat(gravity);
                                 var result;
                                 if(unit == "sg") {
@@ -49,7 +49,7 @@ function getPlato(gravity,unit) {
                                 return result;
                         }
 
-function getBrix(gravity,unit) {
+			function getBrix(gravity,unit) {
                                 gravity = parseFloat(gravity);
                                 var result;
                                 if(unit == "sg") {
@@ -74,7 +74,7 @@ function getBrix(gravity,unit) {
                                 return result;
                         }
 
-function getBrix(gravity,unit) {
+			function getBrix(gravity,unit) {
                                 gravity = parseFloat(gravity);
                                 var result;
                                 if(unit == "sg") {
@@ -99,7 +99,7 @@ function getBrix(gravity,unit) {
                                 return result;
                         }
 
-function multiGravity() {
+			function multiGravity() {
                         	var convertGravity = document.convertGravity.convertGravity.value;
 				var convertUnit = document.convertGravity.convertUnit.value;
 				var convertTemp = document.convertGravity.convertTemp.value;
@@ -119,7 +119,7 @@ function multiGravity() {
 				document.getElementById('adjustTemp').innerHTML = adjustTemp;
                         }
 
-function apparentAttenuation() {
+			function apparentAttenuation() {
                                 var initialGravity = document.attenuation.initialGravity.value;
                                 var initialUnit = document.attenuation.initialUnit.value;
                                 var currentGravity = document.attenuation.currentGravity.value;
@@ -137,7 +137,7 @@ function apparentAttenuation() {
                                 document.getElementById('alcool').innerHTML = appAlcool + "%";
                         }
 
-function decoctionTrempe() {
+			function decoctionTrempe() {
                                 var decoctionVolume = document.decoction.decoctionVolume.value;
                                 var decoctionInitial = document.decoction.decoctionInitial.value;
                                 var decoctionCible = document.decoction.decoctionCible.value; 
@@ -150,7 +150,7 @@ function decoctionTrempe() {
                                 document.getElementById('decoctionRatio').innerHTML = ((decoctionRatio * 100).toFixed(1)) + "%";
                         }
 
-function bavarianHopping() {
+			function bavarianHopping() {
                                 var bavarianVolume = document.bavarianHop.bavarianVolume.value;
                                 var bavarianAlpha = document.bavarianHop.bavarianAlpha.value;
                                 var bavarianIBU = document.bavarianHop.bavarianIBU.value;
@@ -165,15 +165,18 @@ function bavarianHopping() {
                                 document.getElementById('bavarianBoil').innerHTML = boilHop.toFixed(0) + "g";
                         }
 
-	function firstInfusion() {
-		var maltInfu = document.infusion.maltInfu.value;
-		var ratioInfu = document.infusion.ratioInfu.value;
-		var targetInfu = document.infusion.targetInfu.value;
-
-		var volumeInfu = ratioInfu * maltInfu;
-		var initialInfu = (maltInfu * 1610 * (20 - targetInfu)) / (volumeInfu * 4185);
-		var tempInfu = targetInfu - initialInfu;
-
-		document.getElementById('volumeInfu').innerHTML = volumeInfu.toFixed(1) + "L";
-		document.getElementById('tempInfu').innerHTML = tempInfu.toFixed(1) + "°C";
-	}
+			function firstInfusion() {
+				var maltInfu = document.infusion.maltInfu.value;
+				var ratioInfu = document.infusion.ratioInfu.value;
+				var targetInfu = document.infusion.targetInfu.value;
+				var baseTemp = document.infusion.baseTemp.value;
+		
+				var volumeInfu = ratioInfu * maltInfu;
+				var initialInfu = (maltInfu * 1610 * (baseTemp - targetInfu)) / (volumeInfu * 4185);
+				var tempInfu = targetInfu - initialInfu;
+				var volumeMaische = maltInfu * 1.65 + volumeInfu;
+	
+				document.getElementById('volumeInfu').innerHTML = volumeInfu.toFixed(1) + "L";
+				document.getElementById('tempInfu').innerHTML = tempInfu.toFixed(1) + "°C";
+				document.getElementById('volumeMaische').innerHTML = volumeMaische.toFixed(1) + "L";
+			}
