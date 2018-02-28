@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Brasserie Gamb - Mini boite a outils</title>
+		<title>Brewtoolbox - Brasserie Gamb</title>
 		<link rel="icon" type="image/x-icon" href="../template/brasserie-gamb_fav.ico" />
 		<link href="brewtoolbox.css" rel="stylesheet" type="text/css"/>
 		<script type="text/javascript" src="brewtoolbox.js"></script>
@@ -46,14 +46,22 @@
 					</fieldset>
 					<fieldset>
                                                 <legend>Murica units convert</legend>
+						<form name="muricaConvert">
                                                 <table width=100%>
 							<tr>
 								<td width="66%"><form>
-									<input type="text" name="" placeholder="Temp" value="70.0" size="3"/>°F
-								</form></td>
+									<input type="text" name="muricaTemp" title="Temp&eacute;rature en degr&eacute; farhenheit" value="70.0" size="3"/>°F
+								</td>
 								<td>-</td>
 							</tr>
+							<tr>
+                                                                <td width="66%"><form>
+                                                                        <input type="text" name="muricaVolume" title="Volume en gallon" value="10.0" size="3"/>gal
+                                                                </td>
+                                                                <td>-</td>
+                                                        </tr>
 						</table>
+						</form>
                                         </fieldset>
 				</td>
 				<td width=33%>
@@ -71,7 +79,8 @@
                                                                 <option value="sg">SG</option>
                                                                 <option value="plato" selected>°P</option>
                                                                 <option value="brix">°B</option>
-                                                        </select>
+                                                        </select> @ 
+							<input type="text" name="primingSugar" title="Sucre &agrave; l'embouteillage" size="1" value="5.5"/>g/L
 							<input type="button" value="&circlearrowleft;" onClick="apparentAttenuation()"/>
 						</form>
 						<table width="100%">
@@ -82,6 +91,10 @@
 							<tr>
 								<td>Taux d'alcool</td>
                                                                 <td id="alcool">-</td>
+							</tr>
+							<tr>
+								<td>Avec ressucrage</td>
+								<td id="primingSugarAlcool">-</td>
 							</tr>
 						</table>
                                         </fieldset>
@@ -109,7 +122,7 @@
 				</td>
 				<td width=33%>
                                         <fieldset>
-                                                <legend title="Infusion initiale">Premier palier</legend>
+                                                <legend title="Infusion initiale pour l'empatage">MashLauncher mk1</legend>
 						<form name="infusion">
 							<input type="text" name="maltInfu" title="Masse de grain en kg" size="2" value="10.0"/>kg @
 							<input type="text" name="baseTemp" title="Temp&eacute;rature ambiante" size="2" value="20.0"/>°C
@@ -133,10 +146,10 @@
 						</table>
                                         </fieldset>
 					<fieldset>
-                                                <legend>Décoction</legend>
+                                                <legend>DécoctionBuddy</legend>
 						<form name="decoction">
-							<input type="text" name="decoctionVolume" title="Volume total de la maische" size="3" value="40"/>L@<input type="text" name="decoctionInitial" title="Temp&eacute;rature actuelle de la maische" size="3" value="50.0"/>°C &rarr;
-							<input type="text" name="decoctionCible" title="Temp&eacute;rature cible de la maische" size="3" value="65.0"/>°C
+							<input type="text" name="decoctionVolume" title="Volume total de la maische" size="2" value="40"/>L @ <input type="text" name="decoctionInitial" title="Temp&eacute;rature actuelle de la maische" size="2" value="50.0"/>°C &rarr;
+							<input type="text" name="decoctionCible" title="Temp&eacute;rature cible de la maische" size="2" value="65.0"/>°C
 							<input type="button" value="&circlearrowleft;" onClick="decoctionTrempe()"/>
 						</form>
 						<table width="100%">

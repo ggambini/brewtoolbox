@@ -124,6 +124,7 @@
                                 var initialUnit = document.attenuation.initialUnit.value;
                                 var currentGravity = document.attenuation.currentGravity.value;
                                 var currentUnit = document.attenuation.currentUnit.value;
+				var primingSugar = document.attenuation.primingSugar.value
 
                                 initialGravity = getSG(initialGravity,initialUnit);
                                 currentGravity = getSG(currentGravity,currentUnit);
@@ -132,9 +133,22 @@
                                 appAttenuation = appAttenuation.toFixed(2);
                                 document.getElementById('apparentAttenuation').innerHTML = appAttenuation + "%";
 
-                                var appAlcool = ((initialGravity - currentGravity) / 7.5) * 1000;
-                                appAlcool = appAlcool.toFixed(2);
-                                document.getElementById('alcool').innerHTML = appAlcool + "%";
+				// Formule simple de calcul - Adapte aux taux < 6%
+                                var percentAlcool1 = ((initialGravity - currentGravity) / 7.642) * 1000;
+                                stringAlcool1 = percentAlcool1.toFixed(2);
+				// Formule 2 de calcul - Adapte aux taux > 6%
+				var percentAlcool2 = (76.08 * (initialGravity - currentGravity) / (1.775 - initialGravity)) * (currentGravity / 0.794)
+				stringAlcool2 = percentAlcool2.toFixed(2);
+                                document.getElementById('alcool').innerHTML = stringAlcool1 + " - " + stringAlcool2 + "%";
+
+				// Formule calcul resucrage - sucre en gramme x 
+				var primingSugarAlcool = (primingSugar * 0.5114) / 7.95;
+				stringAlcool1 = percentAlcool1 + primingSugarAlcool;
+				stringAlcool1 = stringAlcool1.toFixed(2);
+				stringAlcool2 = percentAlcool2 + primingSugarAlcool;
+				stringAlcool2 = stringAlcool2.toFixed(2);
+				document.getElementById('primingSugarAlcool').innerHTML = stringAlcool1 + " - " + stringAlcool2 + "%";
+
                         }
 
 			function decoctionTrempe() {
