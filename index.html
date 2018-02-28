@@ -7,20 +7,20 @@
 	</head>
 	<body>
 	<div id="content">
-		<img src="../template/brasserie-gamb_logo-v0.1.png" height=100 /><p/>
+		<img src="http://gamb.fr/template/brasserie-gamb_logo-v0.1.png" height=100 /><p/>
 		<table width=100%>
 			<tr valign="top">
 				<td width=33%>
 					<fieldset>
-						<legend>Convertisseur</legend>
+						<legend title="Conversion/Correction densit&eacute; 3 unit&eacute;s">UberConverter 3D</legend>
 						<form name="convertGravity">
-                                                        <input type="text" name="convertGravity" placeholder="Densité" value="1045" size="4"/>
-                                                        <select name="convertUnit">
+                                                        <input type="text" name="convertGravity" title="Densit&eacute; &eacute;chantillon" value="1045" size="3"/>
+                                                        <select name="convertUnit" title="Unit&eacute; densit&eacute;">
 								<option value="sg">SG</option>
 								<option value="plato">°P</option>
 								<option value="brix">°B</option>
                                                         </select> @ 
-                                                        <input type="text" name="convertTemp" placeholder="Temp" value="70.0" size="3"/>°C
+                                                        <input type="text" name="convertTemp" title="Temp&eacute;rature &eacute;chantillon" value="70.0" size="2"/>°C
 							<input type="button" value="&circlearrowleft;" onClick="multiGravity()"/>
 						</form>
 						<p/>
@@ -60,16 +60,16 @@
 				</td>
 				<td width=33%>
 					<fieldset>
-                                                <legend>Atténuation</legend>
+                                                <legend title="Att&eacute;nuation et taux d'alcool">Voltm&egrave;tre 3000</legend>
 						<form name="attenuation">
-							<input type="text" name="initialGravity" placeholder="Initiale" value="11" size="4"/>
-							<select name="initialUnit">
+							<input type="text" name="initialGravity" title="Densit&eacute; initiale" value="11" size="4"/>
+							<select name="initialUnit" title="Unit&eacute; densit&eacute;">
                                                                 <option value="sg">SG</option>
                                                                 <option value="plato" selected>°P</option>
                                                                 <option value="brix">°B</option>
                                                         </select> &rarr; 
-							<input type="text" name="currentGravity" placeholder="Actuelle" value="2" size="4"/>
-                                                        <select name="currentUnit">
+							<input type="text" name="currentGravity" title="Densit&eacute; actuelle" value="2" size="4"/>
+                                                        <select name="currentUnit" title="Unit&eacute; densit&eacute;">
                                                                 <option value="sg">SG</option>
                                                                 <option value="plato" selected>°P</option>
                                                                 <option value="brix">°B</option>
@@ -112,12 +112,13 @@
 				</td>
 				<td width=33%>
                                         <fieldset>
-                                                <legend>Premier palier</legend>
+                                                <legend title="Infusion initiale">Premier palier</legend>
 						<form name="infusion">
-							<input type="text" name="maltInfu" placeholder="Grain" size="3"/>kg 
-							<input type="text" name="ratioInfu" placeholder="Ratio" size="3" value="3.0"/> &rarr;
-							<input type="text" name="targetInfu" placeholder="Temp" size="3"/>°C
-							<input type="button" value="&circlearrowleft;" onClick="firstInfusion()"/>
+							<input type="text" name="maltInfu" title="Masse de grain en kg" size="2" value="10.0"/>kg @
+							<input type="text" name="baseTemp" title="Temp&eacute;rature ambiante" size="2" value="20.0"/>°C
+							<input type="text" name="ratioInfu" title="Ratio d'empatage" size="1" value="3.0"/> &rarr;
+							<input type="text" name="targetInfu" title="Temp&eacute;rature cible" size="2"value="50.0"/>°C
+							<input type="button" value="&circlearrowleft;" onClick="firstInfusion()"/><br/>
 						</form>
 						<table width="100%">
 							<tr>
@@ -133,8 +134,8 @@
 					<fieldset>
                                                 <legend>Décoction</legend>
 						<form name="decoction">
-							<input type="text" name="decoctionVolume" placeholder="Volume" size="3" value="40"/>L@<input type="text" name="decoctionInitial" placeholder="Initiale" size="3" value="50"/>°C &rarr;
-							<input type="text" name="decoctionCible" placeholder="Cible" size="3" value="65.0"/>°C
+							<input type="text" name="decoctionVolume" title="Volume total de la maische" size="3" value="40"/>L@<input type="text" name="decoctionInitial" title="Temp&eacute;rature actuelle de la maische" size="3" value="50.0"/>°C &rarr;
+							<input type="text" name="decoctionCible" title="Temp&eacute;rature cible de la maische" size="3" value="65.0"/>°C
 							<input type="button" value="&circlearrowleft;" onClick="decoctionTrempe()"/>
 						</form>
 						<table width="100%">
