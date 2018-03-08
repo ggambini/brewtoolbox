@@ -141,7 +141,7 @@
 				stringAlcool2 = percentAlcool2.toFixed(2);
                                 document.getElementById('alcool').innerHTML = stringAlcool1 + " - " + stringAlcool2 + "%";
 
-				// Formule calcul resucrage - sucre en gramme x 
+				// Formule calcul resucrage - sucre en gramme x taux fermentiscibilité 
 				var primingSugarAlcool = (primingSugar * 0.5114) / 7.95;
 				stringAlcool1 = percentAlcool1 + primingSugarAlcool;
 				stringAlcool1 = stringAlcool1.toFixed(2);
@@ -188,7 +188,8 @@
 				var volumeInfu = ratioInfu * maltInfu;
 				var initialInfu = (maltInfu * 1610 * (baseTemp - targetInfu)) / (volumeInfu * 4185);
 				var tempInfu = targetInfu - initialInfu;
-				var volumeMaische = maltInfu * 1.65 + volumeInfu;
+				// Volume malt 1.65L/kg - Retention malt 1L/kg donne 0.65
+				var volumeMaische = maltInfu * 0.65 + volumeInfu;
 	
 				document.getElementById('volumeInfu').innerHTML = volumeInfu.toFixed(1) + "L";
 				document.getElementById('tempInfu').innerHTML = tempInfu.toFixed(1) + "°C";
