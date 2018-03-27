@@ -157,11 +157,13 @@
                                 var decoctionCible = document.decoction.decoctionCible.value; 
                                 var decoctionRetour = '100.0'
 
-                                decoctionRatio = (decoctionCible - decoctionInitial) / (decoctionRetour - decoctionInitial);
-                                decoctionTrempeVolume = decoctionVolume * decoctionRatio;
+                                var decoctionRatio = (decoctionCible - decoctionInitial) / (decoctionRetour - decoctionInitial);
+                                var decoctionTrempeVolume = decoctionVolume * decoctionRatio;
+				var mashtunNewVolume = decoctionVolume - decoctionTrempeVolume;
 
                                 document.getElementById('decoctionTrempeVolume').innerHTML = decoctionTrempeVolume.toFixed(1) + "L";
                                 document.getElementById('decoctionRatio').innerHTML = ((decoctionRatio * 100).toFixed(1)) + "%";
+				document.getElementById('mashtunNewVolume').innerHTML = mashtunNewVolume.toFixed(1) + "L";
                         }
 
 			function bavarianHopping() {
